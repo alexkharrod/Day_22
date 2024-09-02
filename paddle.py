@@ -1,41 +1,27 @@
 from turtle import Turtle
 
-MOVE_DISTANCE = 20
-UP = 90
-DOWN = 270
 
 
-class Paddle:
+class Paddle(Turtle):
     def __init__(self, position):
         # draw our paddle
+        super().__init__()
         self.position = position
-        self.paddle = Turtle('square')
-        self.paddle.speed("fastest")
-        self.paddle.penup()
-        self.paddle.shapesize(stretch_wid=1, stretch_len=5)
-        self.paddle.goto(position)
-        self.paddle.color("white")
-        self.paddle.setheading(90)
-
-
+        self.shape('square')
+        self.penup()
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.goto(position)
+        self.color("white")
 
 
     def up(self):
-        self.paddle.setheading(UP)
-        self.paddle_move()
+        self.goto(self.xcor(), self.ycor() + 20)
 
 
     def down(self):
-        self.paddle.setheading(DOWN)
-        self.paddle_move()
+        self.goto(self.xcor(), self.ycor() - 20)
 
-        # def left_up(self):
-        #     self.paddle.setheading(UP)
-        #     self.paddle_move()
-        #
-        # def left_down(self):
-        #     self.paddle.setheading(DOWN)
-        #     self.paddle_move()
 
-    def paddle_move(self):
-        self.paddle.forward(MOVE_DISTANCE)
+
+
+

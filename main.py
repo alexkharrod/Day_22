@@ -4,13 +4,13 @@ from turtle import Turtle, Screen
 
 from paddle import Paddle
 
+from ball import Ball
+
 import time
 
 from random import randint
 
 STARTING_POSITIONS = [(350,0),  (-350, 0)]
-
-
 
 screen =  Screen()
 screen.bgcolor("black")
@@ -21,17 +21,20 @@ screen.setup(800, 600)
 
 r_paddle = Paddle(STARTING_POSITIONS[0])
 l_paddle = Paddle(STARTING_POSITIONS[1])
+ball = Ball()
 
 game_is_on = True
-# while game_is_on:
+while game_is_on:
     # get paddles to move up and down
-screen.listen()
-screen.onkey(r_paddle.up,"Up")
-screen.onkey(r_paddle.down,"Down")
-screen.onkey(l_paddle.up,"w")
-screen.onkey(l_paddle.down,"s")
+    time.sleep(0.1)
+    screen.listen()
+    screen.onkey(r_paddle.up,"Up")
+    screen.onkey(r_paddle.down,"Down")
+    screen.onkey(l_paddle.up,"w")
+    screen.onkey(l_paddle.down,"s")
+    ball.move()
 
-screen.update()
+    screen.update()
 
 
 
